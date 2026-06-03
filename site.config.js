@@ -57,7 +57,7 @@ module.exports = {
       "Lavanderia especializada em cortinas, edredons, tapetes e roupas de cama, com retirada e entrega em Itapema, Balneário Camboriú, Itajaí e Porto Belo."
   },
   assets: {
-    ogImage: "",
+    ogImage: "/assets/images/og-affetto.png",
     placeholders: [
       {
         page: "Home",

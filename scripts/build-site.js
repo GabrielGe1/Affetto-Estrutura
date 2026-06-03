@@ -71,6 +71,9 @@ const pages = [
     ctaSecondary: ["Conhecer os serviços", "#servicos"],
     message: messages.home,
     heroImage: "Coleta, cuidado e entrega em Itapema e região",
+    heroImg: "hero-home.jpg",
+    heroImgAlt: "Equipe Affetto realizando coleta e entrega de peças em condomínio",
+    heroImgPosition: "center center",
     sections: "home"
   },
   {
@@ -88,6 +91,9 @@ const pages = [
     ctaSecondary: ["Ver como funciona", "#como-funciona"],
     message: messages.cortinas,
     heroImage: "Cortinas avaliadas antes da higienização",
+    heroImg: "hero-cortinas.jpg",
+    heroImgAlt: "Profissional da Affetto avaliando cortina antes da higienização",
+    heroImgPosition: "center top",
     sections: "cortinas",
     faq: [
       ["Vocês retiram a cortina?", "Sim, conforme rota e disponibilidade nas cidades atendidas."],
@@ -121,6 +127,9 @@ const pages = [
     ctaSecondary: ["Ver peças atendidas", "#pecas"],
     message: messages.edredons,
     heroImage: "Edredons limpos, dobrados e prontos para entrega",
+    heroImg: "hero-edredons.jpg",
+    heroImgAlt: "Profissional Affetto organizando edredons em lavanderia",
+    heroImgPosition: "center center",
     sections: "edredons",
     faq: [
       ["Vocês lavam edredom king?", "Sim, conforme avaliação e disponibilidade operacional."],
@@ -148,6 +157,9 @@ const pages = [
     ctaSecondary: ["Ver cidades atendidas", "#cidades"],
     message: messages.retiradaEntrega,
     heroImage: "Retirada e entrega para casas, apartamentos e condomínios",
+    heroImg: "hero-retirada-entrega.jpg",
+    heroImgAlt: "Equipe Affetto realizando entrega de peças limpas em condomínio",
+    heroImgPosition: "center center",
     sections: "delivery",
     faq: [
       ["A retirada tem custo?", "Depende da cidade, rota, valor do pedido e disponibilidade."],
@@ -173,6 +185,9 @@ const pages = [
     ctaSecondary: ["Ver serviços", "#servicos"],
     message: messages.itapema,
     heroImage: "Atendimento de lavanderia com retirada e entrega em Itapema",
+    heroImg: "hero-home.jpg",
+    heroImgAlt: "Atendimento Affetto com retirada e entrega em Itapema",
+    heroImgPosition: "center center",
     sections: "itapema",
     faq: [
       ["Vocês atendem todos os bairros de Itapema?", "Depende de rota, agenda e disponibilidade."],
@@ -198,6 +213,9 @@ const pages = [
     ctaSecondary: ["Ver serviços", "#servicos"],
     message: messages.balnearioCamboriu,
     heroImage: "Atendimento para apartamentos, casas e imóveis de temporada em Balneário Camboriú",
+    heroImg: "card-cortinas.jpg",
+    heroImgAlt: "Atendimento Affetto para cortinas e peças da casa em Balneário Camboriú",
+    heroImgPosition: "center center",
     sections: "bc",
     faq: [
       ["Vocês atendem Balneário Camboriú?", "Sim, conforme rota, agenda e disponibilidade."],
@@ -285,6 +303,10 @@ function whatsappUrl(message) {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
 }
 
+function imgPath(page, filename) {
+  return `${page.slug ? "../" : ""}assets/images/${filename}`;
+}
+
 function waAttrs(page, ctaLocation = "content") {
   return [
     `href="${whatsappUrl(page.message)}"`,
@@ -342,11 +364,13 @@ function hero(page) {
         </div>
       </div>
       <div class="hero-media" data-reveal>
-        <!-- Substituir por foto ou vídeo real da Affetto relacionado a esta página. -->
+        ${page.heroImg
+          ? `<img src="${imgPath(page, page.heroImg)}" alt="${escapeHtml(page.heroImgAlt)}" width="1200" height="675" loading="eager" decoding="async"${page.heroImgPosition && page.heroImgPosition !== "center center" ? ` style="object-position:${page.heroImgPosition}"` : ""}>`
+          : `<!-- Substituir por foto ou vídeo real da Affetto relacionado a esta página. -->
         <div class="photo-placeholder">
           <strong>${escapeHtml(page.heroImage)}</strong>
           <span>Espaço preparado para imagem real da operação, equipe, coleta ou peça higienizada.</span>
-        </div>
+        </div>`}
       </div>
     </div>
     ${proofBar()}
@@ -364,35 +388,43 @@ function sectionHeader(title, text) {
   return `<div class="section-header" data-reveal><h2>${escapeHtml(title)}</h2>${text ? `<p>${escapeHtml(text)}</p>` : ""}</div>`;
 }
 
-function serviceCards() {
+function serviceCards(page) {
   const cards = [
-    [
-      "Cortinas",
-      "Lavagem profissional de cortinas com avaliação da peça, retirada e entrega na região.",
-      "/lavagem-de-cortinas/",
-      "Ver lavagem de cortinas"
-    ],
-    [
-      "Edredons e roupas de cama",
-      "Higienização de edredons, cobertores, mantas, lençóis e peças volumosas.",
-      "/lavagem-de-edredons/",
-      "Ver lavagem de edredons"
-    ],
-    [
-      "Tapetes",
-      "Higienização de tapetes conforme avaliação do material, manchas, odores e condições da peça.",
-      "/duvidas-frequentes/#tapetes",
-      "Tirar dúvidas sobre tapetes"
-    ]
+    {
+      title: "Cortinas",
+      text: "Lavagem profissional de cortinas com avaliação da peça, retirada e entrega na região.",
+      href: "/lavagem-de-cortinas/",
+      cta: "Ver lavagem de cortinas",
+      img: "card-cortinas.jpg",
+      imgAlt: "Profissional da Affetto avaliando cortina em ambiente residencial"
+    },
+    {
+      title: "Edredons e roupas de cama",
+      text: "Higienização de edredons, cobertores, mantas, lençóis e peças volumosas.",
+      href: "/lavagem-de-edredons/",
+      cta: "Ver lavagem de edredons",
+      img: "card-edredons.jpg",
+      imgAlt: "Edredom limpo e dobrado em lavanderia profissional Affetto"
+    },
+    {
+      title: "Tapetes",
+      text: "Higienização de tapetes conforme avaliação do material, manchas, odores e condições da peça.",
+      href: "/duvidas-frequentes/#tapetes",
+      cta: "Tirar dúvidas sobre tapetes",
+      img: "card-tapetes.jpg",
+      imgAlt: "Profissional da Affetto avaliando tapete em processo de higienização"
+    }
   ];
   return `<div class="grid-3">
     ${cards
       .map(
-        ([title, text, href, cta]) => `<article class="card" data-reveal>
-        <div class="service-thumb" aria-hidden="true"></div>
-        <h3>${title}</h3>
-        <p>${text}</p>
-        <a class="card-link" href="${href}">${cta}</a>
+        (card) => `<article class="card" data-reveal>
+        <div class="service-thumb">
+          <img src="${imgPath(page, card.img)}" alt="${escapeHtml(card.imgAlt)}" width="800" height="450" loading="lazy" decoding="async">
+        </div>
+        <h3>${card.title}</h3>
+        <p>${card.text}</p>
+        <a class="card-link" href="${card.href}">${card.cta}</a>
       </article>`
       )
       .join("")}
@@ -445,7 +477,7 @@ function homeSections(page) {
 <section class="section section-white" id="servicos">
   <div class="container">
     ${sectionHeader("O que você pode lavar com a Affetto", "Serviços especializados para peças importantes da casa, com praticidade do início ao fim.")}
-    ${serviceCards()}
+    ${serviceCards(page)}
   </div>
 </section>
 <section class="section" id="como-funciona">
@@ -481,8 +513,7 @@ function homeSections(page) {
 <section class="section">
   <div class="container split">
     <div class="visual-panel" data-reveal>
-      <!-- Substituir por foto real de bastidor, equipe, embalagem ou peça pronta. -->
-      <div class="photo-placeholder"><strong>Uma lavanderia local, especializada e próxima da rotina da casa</strong><span>Área reservada para bastidor real da operação Affetto.</span></div>
+      <img src="${imgPath(page, "bastidor-lavanderia.jpg")}" alt="Bastidor da lavanderia Affetto com peças limpas e organizadas" width="1200" height="675" loading="lazy" decoding="async" style="object-position:30% center">
     </div>
     <div data-reveal>
       <h2>Uma lavanderia local, especializada e próxima da sua rotina</h2>
@@ -674,7 +705,7 @@ function pageSections(page) {
   }
   if (page.sections === "itapema" || page.sections === "bc") {
     const city = page.city;
-    return `<section class="section section-white" id="servicos"><div class="container">${sectionHeader(`Serviços em ${city}`, "Cortinas, edredons, tapetes, roupas de cama e retirada conforme rota e disponibilidade.")}${serviceCards()}</div></section>
+    return `<section class="section section-white" id="servicos"><div class="container">${sectionHeader(`Serviços em ${city}`, "Cortinas, edredons, tapetes, roupas de cama e retirada conforme rota e disponibilidade.")}${serviceCards(page)}</div></section>
 <section class="section" id="como-funciona"><div class="container">${sectionHeader("Como funciona", `Informe bairro e peças pelo WhatsApp para consultar rota em ${city}.`)}${steps([
       ["Chame pelo WhatsApp", "Informe bairro, peças e necessidade."],
       ["Confirmamos a rota", "Verificamos agenda e disponibilidade."],
@@ -686,7 +717,7 @@ function pageSections(page) {
 ${ctaFinal(page, `Quer agendar uma coleta em ${city}?`, "Fale com a Affetto pelo WhatsApp, informe bairro e peças para consultar rota, prazo e disponibilidade.")}`;
   }
   if (page.sections === "avaliacoes") {
-    return `<section class="section section-white"><div class="container">${sectionHeader("O que os clientes dizem sobre a Affetto", "A reputação da Affetto é construída no atendimento, no cuidado com as peças e na entrega de uma experiência prática para o cliente.")}<div class="grid-3"><article class="card" data-reveal><h3>Espaço para prints reais do Google</h3><p>Inserir avaliação real autorizada, sem inventar nomes, comentários ou cidades.</p></article><article class="card" data-reveal><h3>Prova por serviço</h3><p>Cortinas, edredons, tapetes e retirada com links para as páginas principais.</p><a class="card-link" href="/lavagem-de-cortinas/">Ver cortinas</a></article><article class="card" data-reveal><h3>Atendimento regional</h3><p>Itapema, Balneário Camboriú, Itajaí e Porto Belo conforme rota e disponibilidade.</p></article></div></div></section>
+    return `<section class="section section-white"><div class="container">${sectionHeader("O que os clientes dizem sobre a Affetto", "A reputação da Affetto é construída no atendimento, no cuidado com as peças e na entrega de uma experiência prática para o cliente.")}<div class="grid-3"><article class="card" data-reveal><div class="service-thumb"><img src="${imgPath(page, "avaliacoes-google-placeholder.jpg")}" alt="Avaliações de clientes da Affetto no Google" width="800" height="450" loading="lazy" decoding="async"></div><h3>Avaliações no Google</h3><p>Clientes que avaliaram os serviços da Affetto. Inserir prints reais autorizados antes da publicação final.</p></article><article class="card" data-reveal><h3>Prova por serviço</h3><p>Cortinas, edredons, tapetes e retirada com links para as páginas principais.</p><a class="card-link" href="/lavagem-de-cortinas/">Ver cortinas</a></article><article class="card" data-reveal><h3>Atendimento regional</h3><p>Itapema, Balneário Camboriú, Itajaí e Porto Belo conforme rota e disponibilidade.</p></article></div></div></section>
 <section class="section"><div class="container">${sectionHeader("Números da Affetto", "Provas objetivas de operação e confiança local.")}<div class="grid-4">${proof.map(([title, text]) => `<article class="card" data-reveal><span class="big-number">${title}</span><p>${text}</p></article>`).join("")}</div></div></section>
 <section class="section section-white"><div class="container split"><div data-reveal><h2>Nosso compromisso</h2><p class="lead">Processo profissional, produtos biodegradáveis, comunicação transparente, inspeção cuidadosa quando necessário e atendimento pelo WhatsApp.</p></div><div class="card" data-reveal><h3>Provas por serviço</h3><ul class="list-clean"><li><a href="/lavagem-de-cortinas/">Lavagem de cortinas</a></li><li><a href="/lavagem-de-edredons/">Lavagem de edredons</a></li><li><a href="/lavanderia-com-retirada-e-entrega/">Retirada e entrega</a></li><li><a href="/duvidas-frequentes/">Dúvidas frequentes</a></li></ul></div></div></section>
 ${ctaFinal(page, "Quer solicitar um orçamento?", "Fale com a Affetto pelo WhatsApp, informe cidade, bairro e peças.")}`;
