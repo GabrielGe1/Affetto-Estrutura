@@ -1,15 +1,32 @@
 :root {
-  --color-cream: #f7f3ec;
-  --color-white: #ffffff;
-  --color-graphite: #2f3437;
-  --color-muted: #6f7477;
-  --color-sage: #8fa99b;
-  --color-deep-teal: #244e4a;
-  --color-sand: #d8c7b0;
-  --color-gold-soft: #b89b68;
-  --color-error-soft: #b45c4a;
-  --color-line: rgba(47, 52, 55, 0.14);
-  --shadow-soft: 0 18px 48px rgba(47, 52, 55, 0.08);
+  /* ── Paleta Affetto ── */
+  --color-blue: #2C5BAD;         /* Azul Affetto — institucional */
+  --color-blue-dark: #1F477F;    /* Azul escuro — hover / contraste */
+  --color-pink: #B65699;         /* Rosa Affetto — ação / conversão */
+  --color-pink-dark: #9E3F80;    /* Rosa escuro — hover */
+
+  /* ── Superfícies ── */
+  --color-bg: #F7F8FA;
+  --color-white: #FFFFFF;
+
+  /* ── Texto ── */
+  --color-text: #1F2933;
+  --color-muted: #5B6472;
+
+  /* ── Decorativo ── */
+  --color-blue-subtle: #C5D4EF;  /* Azul muito claro — fundos, bordas */
+  --color-pink-subtle: #F0D3EA;  /* Rosa muito claro — fundos */
+
+  /* ── Aliases legados (compatibilidade com classes geradas) ── */
+  --color-cream: #F7F8FA;
+  --color-graphite: #1F2933;
+  --color-sage: #7B9BC8;         /* Azul suave — uso decorativo */
+  --color-deep-teal: #2C5BAD;    /* → blue */
+  --color-sand: #D8E3F5;
+
+  /* ── Sistema ── */
+  --color-line: rgba(31, 41, 51, 0.12);
+  --shadow-soft: 0 18px 48px rgba(31, 41, 51, 0.08);
   --font-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-body: Inter, "Nunito Sans", Arial, sans-serif;
   --container: min(1120px, calc(100vw - 40px));
@@ -28,8 +45,8 @@ html {
 
 body {
   margin: 0;
-  color: var(--color-graphite);
-  background: var(--color-cream);
+  color: var(--color-text);
+  background: var(--color-bg);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
@@ -51,7 +68,7 @@ img {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(36, 78, 74, 0.38);
+  outline: 3px solid rgba(44, 91, 173, 0.45);
   outline-offset: 4px;
 }
 
@@ -65,8 +82,8 @@ img {
   top: 0;
   z-index: 20;
   min-height: var(--header-height);
-  border-bottom: 1px solid rgba(47, 52, 55, 0.1);
-  background: rgba(247, 243, 236, 0.92);
+  border-bottom: 1px solid rgba(31, 41, 51, 0.09);
+  background: rgba(247, 248, 250, 0.93);
   backdrop-filter: blur(18px);
 }
 
@@ -104,7 +121,7 @@ img {
   display: flex;
   align-items: center;
   gap: 18px;
-  color: rgba(47, 52, 55, 0.78);
+  color: rgba(31, 41, 51, 0.68);
   font-size: 14px;
 }
 
@@ -113,7 +130,7 @@ img {
 }
 
 .nav-links a:hover {
-  color: var(--color-deep-teal);
+  color: var(--color-blue);
 }
 
 .menu-toggle {
@@ -125,7 +142,7 @@ img {
   border: 1px solid var(--color-line);
   border-radius: 999px;
   background: var(--color-white);
-  color: var(--color-graphite);
+  color: var(--color-text);
 }
 
 .menu-toggle svg,
@@ -158,25 +175,29 @@ img {
   transform: translateY(-1px);
 }
 
+/* Rosa Affetto — cor de ação principal */
 .button-primary {
-  background: var(--color-deep-teal);
+  background: var(--color-pink);
   color: var(--color-white);
-  box-shadow: 0 12px 28px rgba(36, 78, 74, 0.16);
+  box-shadow: 0 12px 28px rgba(182, 86, 153, 0.22);
 }
 
 .button-primary:hover {
-  background: #1d413d;
+  background: var(--color-pink-dark);
+  box-shadow: 0 12px 28px rgba(158, 63, 128, 0.28);
 }
 
+/* Azul Affetto — ação secundária */
 .button-secondary {
-  border-color: rgba(36, 78, 74, 0.35);
-  color: var(--color-deep-teal);
-  background: rgba(255, 255, 255, 0.42);
+  border-color: rgba(44, 91, 173, 0.34);
+  color: var(--color-blue);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .button-secondary:hover {
-  border-color: var(--color-deep-teal);
+  border-color: var(--color-blue);
   background: var(--color-white);
+  color: var(--color-blue-dark);
 }
 
 .hero {
@@ -195,7 +216,7 @@ img {
   align-items: center;
   gap: 8px;
   margin-bottom: 18px;
-  color: var(--color-deep-teal);
+  color: var(--color-blue);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -205,7 +226,7 @@ img {
 .eyebrow::before {
   width: 24px;
   height: 1px;
-  background: var(--color-sage);
+  background: var(--color-pink);
   content: "";
 }
 
@@ -236,7 +257,7 @@ h3 {
 .lead {
   max-width: 720px;
   margin: 20px 0 0;
-  color: rgba(47, 52, 55, 0.76);
+  color: rgba(31, 41, 51, 0.72);
   font-size: clamp(17px, 2vw, 20px);
 }
 
@@ -253,10 +274,10 @@ h3 {
   position: relative;
   overflow: hidden;
   min-height: 420px;
-  border: 1px solid rgba(47, 52, 55, 0.1);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: var(--radius-image);
   background:
-    linear-gradient(135deg, rgba(143, 169, 155, 0.18), rgba(216, 199, 176, 0.24)),
+    linear-gradient(135deg, rgba(44, 91, 173, 0.08), rgba(182, 86, 153, 0.06)),
     var(--color-white);
   box-shadow: var(--shadow-soft);
 }
@@ -268,12 +289,12 @@ h3 {
   flex-direction: column;
   justify-content: flex-end;
   gap: 10px;
-  border: 1px solid rgba(36, 78, 74, 0.16);
+  border: 1px solid rgba(44, 91, 173, 0.14);
   border-radius: 16px;
   padding: 22px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.8)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.38) 0 14px, rgba(143, 169, 155, 0.08) 14px 28px);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.84)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.42) 0 14px, rgba(44, 91, 173, 0.05) 14px 28px);
 }
 
 .photo-placeholder strong {
@@ -295,15 +316,15 @@ h3 {
   gap: 1px;
   overflow: hidden;
   margin-top: 42px;
-  border: 1px solid rgba(47, 52, 55, 0.1);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: var(--radius-card);
-  background: rgba(47, 52, 55, 0.1);
+  background: rgba(31, 41, 51, 0.09);
 }
 
 .proof-item {
   min-height: 112px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .proof-item strong {
@@ -323,8 +344,9 @@ h3 {
   padding: 88px 0;
 }
 
+/* Seções alternadas usam branco puro sobre o fundo #F7F8FA */
 .section-white {
-  background: rgba(255, 255, 255, 0.58);
+  background: var(--color-white);
 }
 
 .section-header {
@@ -361,15 +383,16 @@ h3 {
 }
 
 .card {
-  border: 1px solid rgba(47, 52, 55, 0.1);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: var(--radius-card);
   padding: 24px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 10px 34px rgba(47, 52, 55, 0.05);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 34px rgba(31, 41, 51, 0.05);
 }
 
+/* Azul Affetto como bloco de destaque */
 .card-accent {
-  background: var(--color-deep-teal);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 
@@ -391,13 +414,13 @@ h3 {
   align-items: center;
   gap: 8px;
   margin-top: 20px;
-  color: var(--color-deep-teal);
+  color: var(--color-blue);
   font-weight: 700;
   transition: color 180ms ease, text-underline-offset 180ms ease;
 }
 
 .card-link:hover {
-  color: #1d413d;
+  color: var(--color-blue-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -412,7 +435,7 @@ h3 {
   margin: -10px -10px 22px;
   border-radius: 14px;
   background:
-    linear-gradient(135deg, rgba(143, 169, 155, 0.28), rgba(216, 199, 176, 0.34)),
+    linear-gradient(135deg, rgba(44, 91, 173, 0.1), rgba(182, 86, 153, 0.07)),
     var(--color-white);
 }
 
@@ -420,7 +443,7 @@ h3 {
   display: block;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.34) 0 18px, rgba(36, 78, 74, 0.08) 18px 36px);
+  background: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.36) 0 18px, rgba(44, 91, 173, 0.05) 18px 36px);
   content: "";
 }
 
@@ -434,12 +457,13 @@ h3 {
 .step {
   position: relative;
   min-height: 190px;
-  border: 1px solid rgba(47, 52, 55, 0.1);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: var(--radius-card);
   padding: 24px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.78);
 }
 
+/* Numeração dos passos em Azul Affetto */
 .step::before {
   counter-increment: step;
   display: inline-flex;
@@ -449,8 +473,8 @@ h3 {
   justify-content: center;
   margin-bottom: 24px;
   border-radius: 999px;
-  background: rgba(143, 169, 155, 0.2);
-  color: var(--color-deep-teal);
+  background: rgba(44, 91, 173, 0.1);
+  color: var(--color-blue);
   font-weight: 800;
   content: counter(step);
 }
@@ -475,6 +499,7 @@ h3 {
   padding-left: 24px;
 }
 
+/* Bullets em Rosa Affetto */
 .list-clean li::before {
   position: absolute;
   top: 0.75em;
@@ -482,7 +507,7 @@ h3 {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: var(--color-sage);
+  background: var(--color-pink);
   content: "";
 }
 
@@ -491,17 +516,17 @@ h3 {
   min-height: 154px;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(47, 52, 55, 0.1);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: var(--radius-card);
   padding: 22px;
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.82);
   transition:
     box-shadow 200ms ease,
     transform 200ms ease;
 }
 
 .city-card:hover {
-  box-shadow: 0 14px 40px rgba(47, 52, 55, 0.1);
+  box-shadow: 0 14px 40px rgba(44, 91, 173, 0.14);
   transform: translateY(-2px);
 }
 
@@ -512,9 +537,10 @@ h3 {
   align-items: stretch;
 }
 
+/* Big numbers em Azul Affetto */
 .big-number {
   display: block;
-  color: var(--color-deep-teal);
+  color: var(--color-blue);
   font-family: var(--font-heading);
   font-size: clamp(46px, 7vw, 74px);
   line-height: 0.95;
@@ -531,9 +557,9 @@ h3 {
 
 .faq-item {
   overflow: hidden;
-  border: 1px solid rgba(47, 52, 55, 0.11);
+  border: 1px solid rgba(31, 41, 51, 0.09);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .faq-question {
@@ -545,7 +571,7 @@ h3 {
   border: 0;
   padding: 20px;
   background: transparent;
-  color: var(--color-graphite);
+  color: var(--color-text);
   font: inherit;
   font-weight: 700;
   text-align: left;
@@ -580,10 +606,11 @@ h3 {
   display: block;
 }
 
+/* CTA band — fundo Azul Affetto */
 .cta-band {
   border-radius: 24px;
   padding: clamp(30px, 6vw, 58px);
-  background: var(--color-deep-teal);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 
@@ -592,16 +619,25 @@ h3 {
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* Botão da CTA band: branco com Rosa Affetto, inverte no hover */
 .cta-band .button-primary {
   background: var(--color-white);
-  color: var(--color-deep-teal);
+  color: var(--color-pink);
   box-shadow: none;
 }
 
+.cta-band .button-primary:hover {
+  background: var(--color-pink);
+  color: var(--color-white);
+  box-shadow: 0 12px 28px rgba(182, 86, 153, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Footer — Azul Affetto */
 .site-footer {
   padding: 58px 0 96px;
-  border-top: 1px solid rgba(47, 52, 55, 0.1);
-  background: rgba(255, 255, 255, 0.52);
+  border-top: none;
+  background: var(--color-blue);
 }
 
 .footer-grid {
@@ -610,10 +646,19 @@ h3 {
   gap: 28px;
 }
 
-.footer-grid p,
-.footer-grid a {
-  color: var(--color-muted);
+.footer-grid p {
+  color: rgba(255, 255, 255, 0.62);
   font-size: 14px;
+}
+
+.footer-grid a {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  transition: color 180ms ease;
+}
+
+.footer-grid a:hover {
+  color: var(--color-white);
 }
 
 .footer-grid h3 {
@@ -623,7 +668,16 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--color-graphite);
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* Marca no footer sobre fundo azul */
+.site-footer .brand strong {
+  color: var(--color-white);
+}
+
+.site-footer .brand span {
+  color: rgba(255, 255, 255, 0.52);
 }
 
 .footer-links {
@@ -631,6 +685,7 @@ h3 {
   gap: 8px;
 }
 
+/* CTA fixo — Rosa Affetto (herda .button-primary) */
 .sticky-whatsapp {
   position: fixed;
   right: 18px;
@@ -694,8 +749,8 @@ h3 {
     align-items: stretch;
     gap: 0;
     padding: 10px 20px 24px;
-    border-bottom: 1px solid rgba(47, 52, 55, 0.1);
-    background: rgba(247, 243, 236, 0.98);
+    border-bottom: 1px solid rgba(31, 41, 51, 0.09);
+    background: rgba(247, 248, 250, 0.98);
   }
 
   .nav-links.is-open {
@@ -704,7 +759,7 @@ h3 {
 
   .nav-links a {
     padding: 14px 0;
-    border-bottom: 1px solid rgba(47, 52, 55, 0.08);
+    border-bottom: 1px solid rgba(31, 41, 51, 0.08);
   }
 
   .nav-cta {
