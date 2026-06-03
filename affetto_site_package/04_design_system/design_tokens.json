@@ -1,0 +1,48 @@
+{
+  "colors": {
+    "cream": "#F7F3EC",
+    "white": "#FFFFFF",
+    "graphite": "#2F3437",
+    "muted": "#6F7477",
+    "sage": "#8FA99B",
+    "deepTeal": "#244E4A",
+    "sand": "#D8C7B0",
+    "goldSoft": "#B89B68",
+    "errorSoft": "#B45C4A"
+  },
+  "typography": {
+    "headingFont": "Cormorant Garamond, Playfair Display, Georgia, serif",
+    "bodyFont": "Inter, Nunito Sans, Arial, sans-serif",
+    "h1": {
+      "desktop": "52-64px",
+      "mobile": "36-42px",
+      "weight": 600
+    },
+    "h2": {
+      "desktop": "34-42px",
+      "mobile": "28-32px",
+      "weight": 600
+    },
+    "body": {
+      "desktop": "16-18px",
+      "mobile": "16px",
+      "weight": 400
+    }
+  },
+  "borderRadius": {
+    "card": "18px",
+    "button": "999px",
+    "image": "22px"
+  },
+  "spacing": {
+    "sectionDesktop": "80-112px",
+    "sectionMobile": "56-72px",
+    "container": "1120-1200px"
+  },
+  "buttons": {
+    "primaryBg": "#244E4A",
+    "primaryText": "#FFFFFF",
+    "secondaryBg": "transparent",
+    "secondaryBorder": "#244E4A"
+  }
+}

@@ -1,0 +1,65 @@
+[build]
+  command   = "npm run build"
+  publish   = "."
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options        = "SAMEORIGIN"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/main.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+# Evita 404 em rotas sem trailing slash — Netlify já serve /route/ via index.html.
+# Redirecionar /route sem barra para /route/ (SEO + canonical correto).
+[[redirects]]
+  from   = "/lavagem-de-cortinas"
+  to     = "/lavagem-de-cortinas/"
+  status = 301
+
+[[redirects]]
+  from   = "/lavagem-de-edredons"
+  to     = "/lavagem-de-edredons/"
+  status = 301
+
+[[redirects]]
+  from   = "/lavanderia-com-retirada-e-entrega"
+  to     = "/lavanderia-com-retirada-e-entrega/"
+  status = 301
+
+[[redirects]]
+  from   = "/lavanderia-em-itapema"
+  to     = "/lavanderia-em-itapema/"
+  status = 301
+
+[[redirects]]
+  from   = "/lavanderia-em-balneario-camboriu"
+  to     = "/lavanderia-em-balneario-camboriu/"
+  status = 301
+
+[[redirects]]
+  from   = "/avaliacoes"
+  to     = "/avaliacoes/"
+  status = 301
+
+[[redirects]]
+  from   = "/duvidas-frequentes"
+  to     = "/duvidas-frequentes/"
+  status = 301

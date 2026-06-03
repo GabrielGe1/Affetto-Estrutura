@@ -1,0 +1,52 @@
+{
+  "events": [
+    {
+      "event_name": "click_whatsapp_home",
+      "trigger": "click on WhatsApp CTA on /",
+      "category": "lead",
+      "service": "generic"
+    },
+    {
+      "event_name": "click_whatsapp_cortinas",
+      "trigger": "click on WhatsApp CTA on /lavagem-de-cortinas",
+      "category": "lead",
+      "service": "cortinas"
+    },
+    {
+      "event_name": "click_whatsapp_edredons",
+      "trigger": "click on WhatsApp CTA on /lavagem-de-edredons",
+      "category": "lead",
+      "service": "edredons"
+    },
+    {
+      "event_name": "click_whatsapp_retirada_entrega",
+      "trigger": "click on WhatsApp CTA on /lavanderia-com-retirada-e-entrega",
+      "category": "lead",
+      "service": "delivery"
+    },
+    {
+      "event_name": "click_whatsapp_itapema",
+      "trigger": "click on WhatsApp CTA on /lavanderia-em-itapema",
+      "category": "lead",
+      "city": "Itapema"
+    },
+    {
+      "event_name": "click_whatsapp_bc",
+      "trigger": "click on WhatsApp CTA on /lavanderia-em-balneario-camboriu",
+      "category": "lead",
+      "city": "Balneário Camboriú"
+    },
+    {
+      "event_name": "click_whatsapp_avaliacoes",
+      "trigger": "click on WhatsApp CTA on /avaliacoes",
+      "category": "lead",
+      "source_context": "proof"
+    },
+    {
+      "event_name": "click_whatsapp_faq",
+      "trigger": "click on WhatsApp CTA on /duvidas-frequentes",
+      "category": "lead",
+      "source_context": "faq"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Variáveis de ambiente — nunca versionar
+.env
+.env.staging
+.env.production
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Dependências (não há, mas por precaução)
+node_modules/
+
+# Pastas de referência / skills externas (não fazem parte do site)
+awesome-design-md-main/
+taste-skill-main/
+ui-ux-pro-max-skill-main/
