@@ -414,17 +414,17 @@ h3 {
   color: var(--color-white);
 }
 
-.card-accent p,
-.card-accent .muted {
-  color: rgba(255, 255, 255, 0.76);
-}
-
 .card p,
 .step p,
 .city-card p,
 .faq-answer p {
   margin: 10px 0 0;
   color: var(--color-muted);
+}
+
+.card.card-accent p,
+.card-accent .muted {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .card-link {
@@ -458,11 +458,7 @@ h3 {
 }
 
 .service-thumb::after {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.36) 0 18px, rgba(44, 91, 173, 0.05) 18px 36px);
-  content: "";
+  display: none;
 }
 
 .steps {
@@ -634,7 +630,7 @@ h3 {
 
 .cta-band p {
   max-width: 650px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Botão da CTA band: branco com Rosa Affetto, inverte no hover */
@@ -665,12 +661,12 @@ h3 {
 }
 
 .footer-grid p {
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 14px;
 }
 
 .footer-grid a {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.84);
   font-size: 14px;
   transition: color 180ms ease;
 }
@@ -686,7 +682,7 @@ h3 {
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 /* Marca no footer sobre fundo azul */
@@ -695,7 +691,7 @@ h3 {
 }
 
 .site-footer .brand span {
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer-links {
